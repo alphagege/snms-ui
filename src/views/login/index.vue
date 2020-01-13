@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="login">
     <component :is="loginType"></component>
   </div>
 </template>
@@ -25,4 +25,8 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.login {
+  width: 100%;
+  height: 100%;
+}
 </style>

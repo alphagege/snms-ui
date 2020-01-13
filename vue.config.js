@@ -1,6 +1,6 @@
 const path = require('path');
 
-function resolve (dir) {
+function resolve(dir) {
     return path.join(__dirname, '.', dir);
 }
 
@@ -9,15 +9,15 @@ module.exports = {
     lintOnSave: false,
     devServer: {
         host: 'localhost',
-        port: 8888
-        // proxy: {
-        //     '^/auditing': {
-        //         target: 'http://9.1.9.189:8088', // 测试
-        //         changeOrigin: true,
-        //         xfwd: true,
-        //         logLevel: 'debug'
-        //     }
-        // }
+        port: 9527
+            // proxy: {
+            //     '^/auditing': {
+            //         target: 'http://9.1.9.189:8088', // 测试
+            //         changeOrigin: true,
+            //         xfwd: true,
+            //         logLevel: 'debug'
+            //     }
+            // }
     },
     chainWebpack: config => {
         config.resolve.alias
@@ -27,5 +27,16 @@ module.exports = {
             .set('@actions', resolve('/src/actions'))
             .set('@static', resolve('/src/static'))
             .set('@controller', resolve('/src/actions/controller.js'));
+    },
+    css: {
+        loaderOptions: {
+            sass: {
+                data: `
+              @import "@/styles/index.scss";
+              @import "@/styles/public.scss";
+              @import "@/styles/public-class.scss";
+            `
+            }
+        }
     }
 };

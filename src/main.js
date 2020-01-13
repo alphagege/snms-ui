@@ -1,6 +1,9 @@
 import Vue from 'vue';
 
 import 'normalize.css/normalize.css'; // A modern alternative to CSS resets
+
+// flex 布局库
+import 'flex.css'
 import '@babel/polyfill';
 
 import Element from 'element-ui';
@@ -20,4 +23,4 @@ new Vue({
     router,
     store,
     render: h => h(App)
-}).$mount('#snms-ui');
+}).$mount('#app');
