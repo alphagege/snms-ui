@@ -1,51 +1,62 @@
-import Cookies from 'js-cookie';
+import Cookies from 'js-cookie'; // 刚进来的时候是undefined
+import * as types from '../mutations-type';
+console.log(Cookies.get('sidebarStatus'));
 
-const app = {
-    state: {
-        sidebar: {
-            opened: !+Cookies.get('sidebarStatus'),
-            withoutAnimation: false
-        },
-        device: 'desktop'
+const state = {
+    sidebar: {
+        opened: Cookies.get('sidebarStatus')
+            ? !!+Cookies.get('sidebarStatus') : true,
+        withoutAnimation: false
     },
-    mutations: {
-        TOGGLE_SIDEBAR: state => {
-            if (state.sidebar.opened) {
-                Cookies.set('sidebarStatus', 1);
-            } else {
-                Cookies.set('sidebarStatus', 0);
-            }
-            state.sidebar.opened = !state.sidebar.opened;
-            state.sidebar.withoutAnimation = false;
-        },
-        CLOSE_SIDEBAR: (state, withoutAnimation) => {
+    device: 'desktop', // 标识当前设备
+    echartsTheme: 'roma'
+};
+
+const mutations = {
+    [types.TOGGLE_SIDEBAR] (state) {
+        state.sidebar.opened = !state.sidebar.opened; // 取反
+        state.sidebar.withoutAnimation = false;
+        if (state.sidebar.opened) {
+            // 展开状态下 cookie存值位1
             Cookies.set('sidebarStatus', 1);
-            state.sidebar.opened = false;
-            state.sidebar.withoutAnimation = withoutAnimation;
-        },
-        TOGGLE_DEVICE: (state, device) => {
-            state.device = device;
+        } else {
+            // 闭合状态下 cookie存值位0
+            Cookies.set('sidebarStatus', 0);
         }
     },
-    actions: {
-        toggleSideBar ({
-            commit
-        }) {
-            commit('TOGGLE_SIDEBAR');
-        },
-        closeSideBar ({
-            commit
-        }, {
-            withoutAnimation
-        }) {
-            commit('CLOSE_SIDEBAR', withoutAnimation);
-        },
-        toggleDevice ({
-            commit
-        }, device) {
-            commit('TOGGLE_DEVICE', device);
-        }
+    [types.CLOSE_SIDEBAR] (state, withoutAnimation) {
+        Cookies.set('sidebarStatus', 0);
+        state.sidebar.opened = false; // 取反
+        state.sidebar.withoutAnimation = withoutAnimation;
+    },
+    [types.TOGGLE_DEVICE] (state, device) {
+        state.device = device;
     }
 };
 
-export default app;
+const actions = {
+    toggleSideBar ({
+        commit
+    }) {
+        commit(types.TOGGLE_SIDEBAR);
+    },
+    toggleDevice ({
+        commit
+    }, device) {
+        commit(types.TOGGLE_DEVICE, device);
+    },
+    closeSideBar ({
+        commit
+    }, {
+        withoutAnimation
+    }) {
+        commit(types.CLOSE_SIDEBAR, withoutAnimation);
+    }
+};
+
+export default {
+    namespaced: true,
+    state,
+    mutations,
+    actions
+};

@@ -14,6 +14,8 @@ import router from './router';
 
 import store from './store';
 
+import './icons';
+
 Vue.use(Element, {
     size: 'mini' // set element-ui default size
 });
