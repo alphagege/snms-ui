@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Layout from '../views/Layout'
+import Admin from './modules/coframe'
+
 const _import = require('./_import_' + process.env.NODE_ENV);
 Vue.use(Router);
 
@@ -31,7 +33,7 @@ export const asyncRouterMap = [{
             component: _import('dashboard/index'),
             name: 'dashboard',
             meta: {
-                title: '工作盘',
+                title: '工作台',
                 icon: 'dashboard'
             }
         }]
@@ -40,7 +42,8 @@ export const asyncRouterMap = [{
         path: '*',
         redirect: '/404',
         hidden: true
-    }
+    },
+    ...Admin
 ]
 
 export default new Router({
