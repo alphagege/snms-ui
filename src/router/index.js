@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Layout from '../views/Layout'
+import Layout from '../views/layout'
 import Admin from './modules/coframe'
 Vue.use(Router);
 

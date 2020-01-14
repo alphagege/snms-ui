@@ -1,6 +1,6 @@
 const path = require('path');
 
-function resolve (dir) {
+function resolve(dir) {
     return path.join(__dirname, '.', dir);
 }
 
@@ -55,9 +55,17 @@ module.exports = {
         loaderOptions: {
             sass: {
                 data: `
-              @import "@/styles/index.scss";
-              @import "@/styles/public.scss";
-              @import "@/styles/public-class.scss";
+                @import "@/styles/public.scss";
+                @import "@/styles/public-class.scss";
+                @import '@/styles/index.scss';
+                @import '@/styles/variables.scss';
+                @import '@/styles/mixin.scss';
+                @import '@/styles/transition.scss';
+                @import '@/styles/element-ui.scss';
+                @import '@/styles/sidebar.scss';
+                @import '@/styles/btn.scss';
+                @import '@/styles/position.scss';
+                @import '@/styles/font.scss';
             `
             }
         }

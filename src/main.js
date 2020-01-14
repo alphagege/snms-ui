@@ -7,8 +7,18 @@ import 'flex.css'
 import '@babel/polyfill';
 
 import Element from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 
-import '@/styles/index.scss'; // global css
+import '@/styles/index.scss';
+import '@/styles/variables.scss';
+import '@/styles/mixin.scss';
+import '@/styles/transition.scss';
+import '@/styles/element-ui.scss';
+import '@/styles/sidebar.scss';
+import '@/styles/btn.scss';
+import '@/styles/position.scss';
+import '@/styles/font.scss';
+
 import App from './App.vue';
 import router from './router';
 
@@ -17,7 +27,7 @@ import store from './store';
 import './icons';
 
 Vue.use(Element, {
-    size: 'mini' // set element-ui default size
+    size: 'small' // set element-ui default size
 });
 Vue.config.productionTip = false;
 

@@ -1,14 +1,10 @@
 <template>
-  <div class="p-20">
-    <el-alert :closable="false" center>
-      <div class="f-22">这里是管理平台</div>
-    </el-alert>
-  </div>
+  <div>授权管理</div>
 </template>
 
 <script>
 export default {
-  name: 'Dashboard',
+  name: '',
   components: {},
   props: {},
   data () {
@@ -24,6 +20,6 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.dashboard {
+.wrapper {
 }
 </style>

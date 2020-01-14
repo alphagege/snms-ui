@@ -15,7 +15,7 @@ export default {
     // cachedViews() {
     //   return this.$store.state.tagsView.cachedViews;
     // },
-    key () {
+    key() {
       return this.$route.path;
     }
   }
@@ -27,6 +27,7 @@ export default {
   /* 50= navbar  50  */
   min-height: calc(100vh - 84px);
   width: 100%;
+  padding: 30px;
   position: relative;
   overflow: hidden;
 }

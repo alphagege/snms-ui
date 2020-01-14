@@ -7,6 +7,24 @@
       id="hamburger-container"
     />
     <breadcrumb class="breadcrumb-container" id="breadcrumb-container" />
+
+    <div class="right-menu">
+      <template v-if="device!=='mobile'">
+        <screenfull class="right-menu-item hover-effect" id="screenfull" />
+      </template>
+      <div class="user-name">admin</div>
+      <el-dropdown class="avatar-container right-menu-item hover-effect" trigger="click">
+        <div class="avatar-wrapper">
+          <img :src="avatar" class="user-avatar" />
+          <i class="el-icon-caret-bottom" />
+        </div>
+        <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item @click.native="logout" divided>
+            <span style="display:block;">登出</span>
+          </el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
+    </div>
   </div>
 </template>
 
@@ -14,18 +32,29 @@
 import { mapGetters } from 'vuex';
 import Hamburger from '@/components/Hamburger';
 import Breadcrumb from '@/components/Breadcrumb';
+import Screenfull from '@/components/Screenfull'
 
 export default {
   components: {
     Hamburger,
-    Breadcrumb
+    Breadcrumb,
+    Screenfull
   },
   computed: {
-    ...mapGetters(['sidebar'])
+    ...mapGetters(['sidebar', 'device'])
+  },
+  data () {
+    return {
+      avatar: require('@/assets/user.gif')
+    }
   },
   methods: {
     toggleSideBar () {
       this.$store.dispatch('app/toggleSideBar');
+    },
+    async logout () {
+      // await this.$store.dispatch('user/logout')
+      // this.$router.push(`/login?redirect=${this.$route.fullPath}`)
     }
     // async logout() {
     //   await this.$store.dispatch("user/logout");
@@ -73,7 +102,15 @@ export default {
     &:focus {
       outline: none;
     }
-
+    .user-name {
+      display: inline-block;
+      height: 100%;
+      font-size: 16px;
+      color: #5a5e66;
+      vertical-align: text-bottom;
+      margin-right: 8px;
+      margin-left: 8px;
+    }
     .right-menu-item {
       display: inline-block;
       padding: 0 8px;
@@ -93,7 +130,7 @@ export default {
     }
 
     .avatar-container {
-      margin-right: 30px;
+      margin-right: 15px;
 
       .avatar-wrapper {
         margin-top: 5px;
@@ -105,7 +142,6 @@ export default {
           height: 40px;
           border-radius: 10px;
         }
-
         .el-icon-caret-bottom {
           cursor: pointer;
           position: absolute;
