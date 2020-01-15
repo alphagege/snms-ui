@@ -18,7 +18,7 @@ const state = {
 };
 
 const mutations = {
-    [types.CHANGE_SETTING](state, {
+    [types.CHANGE_SETTING] (state, {
         key,
         value
     }) {
@@ -29,7 +29,7 @@ const mutations = {
 };
 
 const actions = {
-    changeSetting({
+    changeSetting ({
         commit
     }, data) {
         commit(types.CHANGE_SETTING, data);

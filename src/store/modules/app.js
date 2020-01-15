@@ -13,7 +13,7 @@ const state = {
 };
 
 const mutations = {
-    [types.TOGGLE_SIDEBAR] (state) {
+    TOGGLE_SIDEBAR: (state) => {
         state.sidebar.opened = !state.sidebar.opened; // 取反
         state.sidebar.withoutAnimation = false;
         if (state.sidebar.opened) {
@@ -24,12 +24,12 @@ const mutations = {
             Cookies.set('sidebarStatus', 0);
         }
     },
-    [types.CLOSE_SIDEBAR] (state, withoutAnimation) {
+    CLOSE_SIDEBAR: (state, withoutAnimation) => {
         Cookies.set('sidebarStatus', 0);
         state.sidebar.opened = false; // 取反
         state.sidebar.withoutAnimation = withoutAnimation;
     },
-    [types.TOGGLE_DEVICE] (state, device) {
+    TOGGLE_DEVICE: (state, device) => {
         state.device = device;
     }
 };
