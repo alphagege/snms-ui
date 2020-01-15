@@ -33,6 +33,7 @@
               >
                 <el-form-item prop="username">
                   <el-input
+                    @keypress.enter.native="handleLogin"
                     autocomplete="off"
                     placeholder="用户名"
                     type="text"
@@ -43,6 +44,7 @@
                 </el-form-item>
                 <el-form-item prop="password">
                   <el-input
+                    @keypress.enter.native="handleLogin"
                     autocomplete="off"
                     placeholder="密码"
                     type="password"
@@ -78,6 +80,7 @@
 
 <script>
 import dayjs from 'dayjs'
+import { login } from '@/api/login.js'
 export default {
   data () {
     return {
@@ -138,9 +141,14 @@ export default {
               // 重定向对象不存在则返回顶层路径
               this.$router.replace(this.$route.query.redirect || '/')
             })
-        } else {
-          // 登录表单校验失败
-          this.$message.error('表单校验失败')
+        }
+      })
+    },
+    handleLogin () {
+      this.$refs.loginForm.validate(async valid => {
+        if (valid) {
+          this.loading = true
+          login(this.loginForm)
         }
       })
     }

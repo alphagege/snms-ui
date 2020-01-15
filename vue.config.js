@@ -9,15 +9,15 @@ module.exports = {
     lintOnSave: false,
     devServer: {
         host: 'localhost',
-        port: 9527
-            // proxy: {
-            //     '^/auditing': {
-            //         target: 'http://9.1.9.189:8088', // 测试
-            //         changeOrigin: true,
-            //         xfwd: true,
-            //         logLevel: 'debug'
-            //     }
-            // }
+        port: 9527,
+        proxy: {
+            '^/auditing': {
+                target: 'http://9.1.9.189:8088', // 测试
+                changeOrigin: true,
+                xfwd: true,
+                logLevel: 'debug'
+            }
+        }
     },
     chainWebpack: config => {
         config.resolve.alias

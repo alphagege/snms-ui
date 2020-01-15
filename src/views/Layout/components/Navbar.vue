@@ -12,9 +12,9 @@
       <template v-if="device!=='mobile'">
         <screenfull class="right-menu-item hover-effect" id="screenfull" />
       </template>
-      <div class="user-name">admin</div>
-      <el-dropdown class="avatar-container right-menu-item hover-effect" trigger="click">
+      <el-dropdown class="avatar-container right-menu-item" trigger="click">
         <div class="avatar-wrapper">
+          <div class="user-name right-menu-item">admin</div>
           <img :src="avatar" class="user-avatar" />
           <i class="el-icon-caret-bottom" />
         </div>
@@ -71,7 +71,7 @@ export default {
   position: relative;
   background: #fff;
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
-
+  user-select: none;
   .hamburger-container {
     line-height: 46px;
     height: 100%;
@@ -105,11 +105,9 @@ export default {
     .user-name {
       display: inline-block;
       height: 100%;
-      font-size: 16px;
+      font-size: 15px !important;
       color: #5a5e66;
       vertical-align: text-bottom;
-      margin-right: 8px;
-      margin-left: 8px;
     }
     .right-menu-item {
       display: inline-block;
@@ -130,17 +128,16 @@ export default {
     }
 
     .avatar-container {
-      margin-right: 15px;
+      margin-right: 30px;
 
       .avatar-wrapper {
-        margin-top: 5px;
         position: relative;
 
         .user-avatar {
           cursor: pointer;
           width: 40px;
           height: 40px;
-          border-radius: 10px;
+          border-radius: 50%;
         }
         .el-icon-caret-bottom {
           cursor: pointer;
