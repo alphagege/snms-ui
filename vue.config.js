@@ -1,6 +1,6 @@
 const path = require('path');
 
-function resolve (dir) {
+function resolve(dir) {
     return path.join(__dirname, '.', dir);
 }
 
@@ -8,7 +8,7 @@ module.exports = {
     productionSourceMap: false,
     lintOnSave: false,
     devServer: {
-        host: 'localhost',
+        host: '9.5.6.132',
         port: 9527,
         proxy: {
             '^/auditing': {

@@ -29,6 +29,7 @@
 </template>
 
 <script>
+import { logout } from '@/api/login.js'
 import { mapGetters } from 'vuex';
 import Hamburger from '@/components/Hamburger';
 import Breadcrumb from '@/components/Breadcrumb';
@@ -53,13 +54,10 @@ export default {
       this.$store.dispatch('app/toggleSideBar');
     },
     async logout () {
-      // await this.$store.dispatch('user/logout')
-      // this.$router.push(`/login?redirect=${this.$route.fullPath}`)
+      logout({}).then(response => {
+        this.$router.push('/login');
+      })
     }
-    // async logout() {
-    //   await this.$store.dispatch("user/logout");
-    //   this.$router.push(`/login?redirect=${this.$route.fullPath}`);
-    // }
   }
 };
 </script>
@@ -132,15 +130,14 @@ export default {
 
       .avatar-wrapper {
         position: relative;
+        cursor: pointer;
 
         .user-avatar {
-          cursor: pointer;
           width: 40px;
           height: 40px;
           border-radius: 50%;
         }
         .el-icon-caret-bottom {
-          cursor: pointer;
           position: absolute;
           right: -20px;
           top: 25px;

@@ -1,16 +1,21 @@
 import ajaxUtil from '@/libs/ajaxUtil'
 
-export function login (user) {
+export function login(user) {
     return ajaxUtil.ajax({
         url: 'login',
         method: 'post',
         data: user,
-        headers: {}
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        }
     })
 }
-export function logout () {
+export function logout() {
     return ajaxUtil.ajax({
         url: '/logout',
-        method: 'post'
+        method: 'post',
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest'
+        }
     })
 }

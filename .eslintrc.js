@@ -24,7 +24,9 @@ module.exports = {
             max: 2
         }], // 空行最多不能超过2行
         'no-mixed-spaces-and-tabs': ['error', 'smart-tabs'], // 当 tab 是为了对齐，允许混合使用空格和 tab。
+
+        "handle-callback-err": ["error", "err"],
         semi: [0, 'always'], // 必须分号结束！
-        indent: [0, 4] // tab键4个空格xww
+        indent: [0, 4], // tab键4个空格xww
     }
 }

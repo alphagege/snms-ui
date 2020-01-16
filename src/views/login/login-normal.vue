@@ -53,7 +53,13 @@
                     <i class="el-icon-lock" slot="prepend"></i>
                   </el-input>
                 </el-form-item>
-                <el-button @click="submit" class="button-login" size="default" type="primary">登录</el-button>
+                <el-button
+                  :loading="loading"
+                  @click="handleLogin"
+                  class="button-login"
+                  size="default"
+                  type="primary"
+                >登录</el-button>
               </el-form>
             </el-card>
             <!-- <p class="page-login--options" flex="main:justify cross:center">
@@ -79,17 +85,21 @@
 </template>
 
 <script>
-import dayjs from 'dayjs'
+import dayjs from 'dayjs';
+import qs from 'qs';
 import { login } from '@/api/login.js'
 export default {
   data () {
     return {
+      // 时间定时器
       timeInterval: null,
+      // 背景时间
       time: dayjs().format('HH:mm:ss'),
+      loading: false,
       // 表单
       formLogin: {
-        username: '',
-        password: ''
+        username: 'R411',
+        password: '000000'
       },
       // 校验
       rules: {
@@ -111,44 +121,36 @@ export default {
     clearInterval(this.timeInterval)
   },
   methods: {
+    /**
+     *  @description 刷新当前时间方法
+    */
     refreshTime () {
       this.time = dayjs().format('HH:mm:ss')
     },
-    // /**
-    //  * @description 接收选择一个用户快速登录的事件
-    //  * @param {Object} user 用户信息
-    //  */
-    // handleUserBtnClick (user) {
-    //   this.formLogin.username = user.username
-    //   this.formLogin.password = user.password
-    //   this.submit()
-    // },
+
     /**
-     * @description 提交表单
-     */
-    // 提交登录信息
-    submit () {
-      this.$refs.loginForm.validate((valid) => {
-        if (valid) {
-          // 登录
-          // 注意 这里的演示没有传验证码
-          // 具体需要传递的数据请自行修改代码
-          this.login({
-            username: this.formLogin.username,
-            password: this.formLogin.password
-          })
-            .then(() => {
-              // 重定向对象不存在则返回顶层路径
-              this.$router.replace(this.$route.query.redirect || '/')
-            })
-        }
-      })
-    },
+     *  @description 提交登陆表单
+    */
     handleLogin () {
       this.$refs.loginForm.validate(async valid => {
         if (valid) {
-          this.loading = true
-          login(this.loginForm)
+          this.loading = true;
+          login(qs.stringify(this.formLogin)).then(response => {
+            if (response.status === 200) {
+              this.$message({
+                message: '登录成功!',
+                type: 'success'
+              })
+              this.loading = false;
+              this.$router.push({ path: '/' })
+            }
+          }).catch(error => {
+            this.$message({
+              message: '登录失败!',
+              type: 'error'
+            })
+            this.loading = false;
+          })
         }
       })
     }
@@ -359,6 +361,4 @@ export default {
     }
   }
 }
-</style>
-<style lang="scss">
 </style>
