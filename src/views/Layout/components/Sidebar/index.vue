@@ -3,12 +3,9 @@
     <logo :collapse="isCollapse" v-if="showLogo" />
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
-        :active-text-color="variables.menuActiveText"
-        :background-color="variables.menuBg"
         :collapse="isCollapse"
         :collapse-transition="false"
         :default-active="activeMenu"
-        :text-color="variables.menuText"
         :unique-opened="false"
         mode="vertical"
       >

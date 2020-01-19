@@ -12,6 +12,9 @@
       <template v-if="device!=='mobile'">
         <screenfull class="right-menu-item hover-effect" id="screenfull" />
       </template>
+      <template v-if="device!=='mobile'">
+        <toggle-theme class="right-menu-item hover-effect" id="toggle-theme" />
+      </template>
       <el-dropdown class="avatar-container right-menu-item" trigger="click">
         <div class="avatar-wrapper">
           <div class="user-name right-menu-item">admin</div>
@@ -34,12 +37,14 @@ import { mapGetters } from 'vuex'
 import Hamburger from '@/components/Hamburger'
 import Breadcrumb from '@/components/Breadcrumb'
 import Screenfull from '@/components/Screenfull'
+import ToggleTheme from '@/components/ToggleTheme'
 
 export default {
   components: {
     Hamburger,
     Breadcrumb,
-    Screenfull
+    Screenfull,
+    ToggleTheme
   },
   computed: {
     ...mapGetters(['sidebar', 'device'])
@@ -67,7 +72,6 @@ export default {
   height: 50px;
   overflow: hidden;
   position: relative;
-  background: #fff;
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
   user-select: none;
   .hamburger-container {

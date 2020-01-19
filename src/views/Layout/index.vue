@@ -1,5 +1,5 @@
 <template>
-  <div :class="classObj" class="app-wrapper">
+  <div :class="classObj" :style="styleLayoutMainGroup" class="app-wrapper">
     <div
       @click="handleClickOutside"
       class="drawer-bg"
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 import ResizeMixin from './mixin/ResizeHandler'
 import Sidebar from './components/Sidebar'
 import Navbar from './components/Navbar'
@@ -43,12 +43,27 @@ export default {
       sidebar: state => state.app.sidebar,
       device: state => state.app.device
     }),
+    ...mapGetters({
+      themeActiveSetting: 'theme/activeSetting'
+    }),
     classObj () {
       return {
         hideSidebar: !this.sidebar.opened, // 隐藏侧边栏所用的样式
         openSidebar: this.sidebar.opened, // 打开侧边栏所用的样式
         withoutAnimation: this.sidebar.withoutAnimation, // 暂时不知
         mobile: this.device === 'mobile' // 设备分辨率标识
+
+      }
+    },
+    /**
+     * @description 最外层容器的背景图片样式
+     */
+    styleLayoutMainGroup () {
+      // console.log(this.themeActiveSetting)
+      return {
+        ...this.themeActiveSetting.backgroundImage ? {
+          backgroundImage: `url('${this.$baseUrl}${this.themeActiveSetting.backgroundImage}')`
+        } : {}
       }
     }
   },
@@ -63,15 +78,18 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-@import '~@/styles/mixin.scss';
-@import '~@/styles/variables.scss';
+// @import '~@/styles/mixin.scss';
+// @import '~@/styles/variables.scss';
+// 注册主题
+// @import '~@/styles/theme/register.scss';
 
 .app-wrapper {
   @include clearfix;
   position: relative;
   height: 100%;
   width: 100%;
-
+  background-size: cover;
+  background-position: center;
   &.mobile.openSidebar {
     position: fixed;
     top: 0;

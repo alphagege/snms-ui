@@ -8,8 +8,7 @@ const state = {
       ? !!+Cookies.get('sidebarStatus') : true,
     withoutAnimation: false
   },
-  device: 'desktop', // 标识当前设备
-  echartsTheme: 'roma'
+  device: 'desktop' // 标识当前设备
 }
 
 const mutations = {
