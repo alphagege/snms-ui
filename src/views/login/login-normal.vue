@@ -85,8 +85,8 @@
 </template>
 
 <script>
-import dayjs from 'dayjs';
-import qs from 'qs';
+import dayjs from 'dayjs'
+import qs from 'qs'
 import { login } from '@/api/login.js'
 export default {
   data () {
@@ -134,22 +134,22 @@ export default {
     handleLogin () {
       this.$refs.loginForm.validate(async valid => {
         if (valid) {
-          this.loading = true;
+          this.loading = true
           login(qs.stringify(this.formLogin)).then(response => {
             if (response.status === 200) {
               this.$message({
                 message: '登录成功!',
                 type: 'success'
               })
-              this.loading = false;
+              this.loading = false
               this.$router.push({ path: '/' })
             }
-          }).catch(error => {
+          }).catch(e => {
             this.$message({
               message: '登录失败!',
               type: 'error'
             })
-            this.loading = false;
+            this.loading = false
           })
         }
       })

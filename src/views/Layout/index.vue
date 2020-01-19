@@ -17,17 +17,17 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
-import ResizeMixin from './mixin/ResizeHandler';
-import Sidebar from './components/Sidebar';
-import Navbar from './components/Navbar';
-import TagsView from './components/TagsView';
-import AppMain from './components/AppMain';
-console.log(ResizeMixin);
+import { mapState } from 'vuex'
+import ResizeMixin from './mixin/ResizeHandler'
+import Sidebar from './components/Sidebar'
+import Navbar from './components/Navbar'
+import TagsView from './components/TagsView'
+import AppMain from './components/AppMain'
+console.log(ResizeMixin)
 export default {
   name: 'Layout',
   data () {
-    return {};
+    return {}
   },
 
   components: {
@@ -49,7 +49,7 @@ export default {
         openSidebar: this.sidebar.opened, // 打开侧边栏所用的样式
         withoutAnimation: this.sidebar.withoutAnimation, // 暂时不知
         mobile: this.device === 'mobile' // 设备分辨率标识
-      };
+      }
     }
   },
 
@@ -57,10 +57,10 @@ export default {
 
   methods: {
     handleClickOutside () {
-      this.$store.dispatch('app/closeSideBar', { withoutAnimation: false });
+      this.$store.dispatch('app/closeSideBar', { withoutAnimation: false })
     }
   }
-};
+}
 </script>
 <style lang="scss" scoped>
 @import '~@/styles/mixin.scss';

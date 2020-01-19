@@ -1,6 +1,8 @@
 {
   "name": "snms-ui",
   "version": "0.1.0",
+  "description": "coframe",
+  "author": "dwjie <707530569@qq.com>",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -27,17 +29,14 @@
     "@vue/cli-plugin-babel": "^4.1.0",
     "@vue/cli-plugin-eslint": "^4.1.0",
     "@vue/cli-service": "^4.1.0",
+    "@vue/eslint-config-standard": "^5.1.0",
     "babel-eslint": "^10.0.3",
     "eslint": "^5.16.0",
-    "eslint-config-standard": "^14.1.0",
-    "eslint-plugin-import": "^2.20.0",
-    "eslint-plugin-node": "^11.0.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1",
     "eslint-plugin-vue": "^5.0.0",
     "node-sass": "^4.13.0",
     "sass-loader": "^7.0.1",
     "svg-sprite-loader": "^4.1.6",
+    "uglifyjs-webpack-plugin": "^2.2.0",
     "vue-template-compiler": "^2.6.10"
   },
   "browserslist": [

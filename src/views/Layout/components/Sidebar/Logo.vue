@@ -27,9 +27,9 @@ export default {
     return {
       title: 'coframe',
       logo: require('@/assets/logo@1x.png')
-    };
+    }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

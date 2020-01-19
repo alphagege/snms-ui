@@ -30,9 +30,9 @@
 
 <script>
 import { logout } from '@/api/login.js'
-import { mapGetters } from 'vuex';
-import Hamburger from '@/components/Hamburger';
-import Breadcrumb from '@/components/Breadcrumb';
+import { mapGetters } from 'vuex'
+import Hamburger from '@/components/Hamburger'
+import Breadcrumb from '@/components/Breadcrumb'
 import Screenfull from '@/components/Screenfull'
 
 export default {
@@ -51,15 +51,15 @@ export default {
   },
   methods: {
     toggleSideBar () {
-      this.$store.dispatch('app/toggleSideBar');
+      this.$store.dispatch('app/toggleSideBar')
     },
     async logout () {
       logout({}).then(response => {
-        this.$router.push('/login');
+        this.$router.push('/login')
       })
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

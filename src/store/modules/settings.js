@@ -1,44 +1,44 @@
-import variables from '@/styles/element-variables.scss';
-import defaultSettings from '@/settings.js';
-import * as types from '../mutations-type';
+import variables from '@/styles/element-variables.scss'
+import defaultSettings from '@/settings.js'
+import * as types from '../mutations-type'
 
 const {
-    showSettings,
-    tagsView,
-    fixedHeader,
-    sidebarLogo
-} = defaultSettings;
+  showSettings,
+  tagsView,
+  fixedHeader,
+  sidebarLogo
+} = defaultSettings
 
 const state = {
-    theme: variables.theme,
-    showSettings: showSettings,
-    tagsView: tagsView,
-    fixedHeader: fixedHeader,
-    sidebarLogo: sidebarLogo
-};
+  theme: variables.theme,
+  showSettings: showSettings,
+  tagsView: tagsView,
+  fixedHeader: fixedHeader,
+  sidebarLogo: sidebarLogo
+}
 
 const mutations = {
-    [types.CHANGE_SETTING] (state, {
-        key,
-        value
-    }) {
-        if (state.hasOwnProperty(key)) {
-            state[key] = value;
-        }
+  [types.CHANGE_SETTING] (state, {
+    key,
+    value
+  }) {
+    if (state.hasOwnProperty(key)) {
+      state[key] = value
     }
-};
+  }
+}
 
 const actions = {
-    changeSetting ({
-        commit
-    }, data) {
-        commit(types.CHANGE_SETTING, data);
-    }
-};
+  changeSetting ({
+    commit
+  }, data) {
+    commit(types.CHANGE_SETTING, data)
+  }
+}
 
 export default {
-    namespaced: true,
-    state,
-    mutations,
-    actions
-};
+  namespaced: true,
+  state,
+  mutations,
+  actions
+}

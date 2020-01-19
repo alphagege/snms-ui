@@ -1,37 +1,69 @@
 module.exports = {
-    title: 'Vue Element Admin',
+  title: 'Vue Element Admin',
 
-    /**
+  /**
      * @type {boolean} true | false
      * @description Whether show the settings right-panel
      */
-    showSettings: true,
-    /**
+  showSettings: true,
+  /**
      * @types {boolean} true | false
      */
-    /**
+  /**
      * @type {boolean} true | false
      * @description Whether need tagsView
      */
-    tagsView: true,
+  tagsView: true,
 
-    /**
+  /**
      * @type {boolean} true | false
      * @description Whether fix the header
      */
-    fixedHeader: false,
+  fixedHeader: false,
 
-    /**
+  /**
      * @type {boolean} true | false
      * @description Whether show the logo in sidebar
      */
-    sidebarLogo: true,
+  sidebarLogo: true,
 
-    /**
+  /**
      * @type {string | array} 'production' | ['production', 'development']
      * @description Need show err logs component.
      * The default is only used in the production env
      * If you want to also use it in dev, you can pass ['production', 'development']
      */
-    errorLog: 'production'
-};
+  errorLog: 'production',
+
+  // 注册的主题
+  theme: {
+    list: [{
+      title: 'd2admin 经典',
+      name: 'd2',
+      preview: 'image/theme/d2/preview@2x.png'
+    },
+    {
+      title: '紫罗兰',
+      name: 'violet',
+      preview: 'image/theme/violet/preview@2x.png'
+    },
+    {
+      title: '简约线条',
+      name: 'line',
+      backgroundImage: 'image/theme/line/bg.jpg',
+      preview: 'image/theme/line/preview@2x.png'
+    },
+    {
+      title: '流星',
+      name: 'star',
+      backgroundImage: 'image/theme/star/bg.jpg',
+      preview: 'image/theme/star/preview@2x.png'
+    },
+    {
+      title: 'Tomorrow Night Blue (vsCode)',
+      name: 'tomorrow-night-blue',
+      preview: 'image/theme/tomorrow-night-blue/preview@2x.png'
+    }
+    ]
+  }
+}
