@@ -6,7 +6,7 @@ export default [{
   name: 'SystemResource',
   meta: {
     title: '系统资源',
-    icon: 'system-resource'
+    icon: 'globe'
   },
   children: [{
     path: 'system-menu',
@@ -15,7 +15,7 @@ export default [{
     name: 'SystemMenu',
     meta: {
       title: '菜单管理',
-      icon: 'system-menu'
+      icon: 'bars'
     }
   },
   {
@@ -25,7 +25,7 @@ export default [{
     name: 'SystemDic',
     meta: {
       title: '字典码表',
-      icon: 'system-dic'
+      icon: 'book'
     }
   }
   ]
@@ -36,7 +36,7 @@ export default [{
   name: 'AuthManage',
   meta: {
     title: '权限管理',
-    icon: 'auth-manage'
+    icon: 'gears'
   },
   children: [{
     path: 'system-user',
@@ -45,7 +45,7 @@ export default [{
     name: 'SystemUser',
     meta: {
       title: '用户管理',
-      icon: 'system-user'
+      icon: 'group'
     }
   },
   {
@@ -55,7 +55,7 @@ export default [{
     name: 'SystemRole',
     meta: {
       title: '角色管理',
-      icon: 'system-role'
+      icon: 'user-plus'
     }
   },
   {
@@ -65,7 +65,7 @@ export default [{
     name: 'SystemAuth',
     meta: {
       title: '授权管理',
-      icon: 'system-auth'
+      icon: 'plus-square'
     }
   }
   ]
@@ -76,7 +76,7 @@ export default [{
   name: 'OrgManage',
   meta: {
     title: '组织机构',
-    icon: 'org-manage'
+    icon: 'site-map'
   },
   children: [{
     path: 'system-org',
@@ -85,7 +85,7 @@ export default [{
     name: 'SystemOrg',
     meta: {
       title: '机构管理',
-      icon: 'system-org'
+      icon: 'pie-chart'
     }
   }]
 }

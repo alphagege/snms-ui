@@ -1,6 +1,8 @@
 <template>
   <div>
-    <svg-icon :icon-class="isFullscreen?'exit-fullscreen':'fullscreen'" @click="click" />
+    <el-tooltip :content="isFullscreen?'退出全屏':'全屏'" effect="dark" placement="bottom">
+      <coframe-icon :name="isFullscreen?'compress':'arrows-alt'" @click.native="click" />
+    </el-tooltip>
   </div>
 </template>
 

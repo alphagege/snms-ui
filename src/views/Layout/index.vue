@@ -5,6 +5,8 @@
       class="drawer-bg"
       v-if="device === 'mobile' && sidebar.opened"
     />
+    <!-- 半透明遮罩 -->
+    <div class="coframe-layout-header-aside-mask"></div>
     <sidebar class="sidebar-container"></sidebar>
     <div class="main-container">
       <div>

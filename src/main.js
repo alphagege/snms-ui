@@ -26,19 +26,21 @@ import router from './router'
 import store from './store'
 
 import './icons'
+// 组件
+import '@/components'
 
 Vue.use(Element, {
-    size: 'small' // set element-ui default size
+  size: 'small' // set element-ui default size
 })
 Vue.config.productionTip = false
-    // 当前的 baseUrl
+// 当前的 baseUrl
 Vue.prototype.$baseUrl = process.env.BASE_URL
 new Vue({
-    router,
-    store,
-    render: h => h(App),
-    mounted() {
-        // 用户登录后从数据库加载一系列的设置
-        this.$store.dispatch('theme/load')
-    }
+  router,
+  store,
+  render: h => h(App),
+  mounted () {
+    // 用户登录后从数据库加载一系列的设置
+    this.$store.dispatch('theme/load')
+  }
 }).$mount('#app')

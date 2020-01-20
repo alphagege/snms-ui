@@ -14,13 +14,13 @@ export const constantRouterMap = [{
 {
   path: '/404',
   component: () =>
-            import ('@/views/errorPage/404.vue'),
+            import ('@/views/error-page/404.vue'),
   hidden: true
 },
 {
   path: '/401',
   component: () =>
-            import ('@/views/errorPage/401.vue'),
+            import ('@/views/error-page/401.vue'),
   hidden: true
 }
 ]

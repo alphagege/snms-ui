@@ -23,7 +23,9 @@
         </div>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item @click.native="logout" divided>
-            <span style="display:block;">登出</span>
+            <span style="display:block;">
+              <coframe-icon name="power-off"></coframe-icon>注销
+            </span>
           </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
@@ -75,7 +77,7 @@ export default {
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
   user-select: none;
   .hamburger-container {
-    line-height: 46px;
+    line-height: 56px;
     height: 100%;
     float: left;
     cursor: pointer;
@@ -84,6 +86,12 @@ export default {
 
     &:hover {
       background: rgba(0, 0, 0, 0.025);
+    }
+    i {
+      margin-right: 10px;
+      margin-bottom: 4px;
+      height: 14px;
+      width: 14px;
     }
   }
 
@@ -107,6 +115,7 @@ export default {
     .user-name {
       display: inline-block;
       height: 100%;
+      font-weight: 600;
       font-size: 15px !important;
       color: #5a5e66;
       vertical-align: text-bottom;
